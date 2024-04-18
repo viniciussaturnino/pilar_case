@@ -3,7 +3,8 @@ from main import app
 
 
 class TestHealthCheck:
-    client = TestClient(app)
+    def setup_method(self):
+        self.client = TestClient(app)
 
     def test_index(self):
         expected_response = {"message": "Hello, World!"}
