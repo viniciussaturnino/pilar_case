@@ -11,7 +11,12 @@ class TestCountVowels:
         }
 
     def test_index(self):
-        expected_response = {"Result": len(self.words)}
+        expected_response = {
+            "Teste": 2,
+            "API": 2,
+            "Count": 2,
+            "Vowels": 2,
+        }
 
         response = self.client.post("/count-vowels", json=self.data)
 
