@@ -10,7 +10,7 @@ class TestCountVowels:
             "words": self.words
         }
 
-    def test_index(self):
+    def test_count_vowels(self):
         expected_response = {
             "Teste": 2,
             "API": 2,
