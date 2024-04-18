@@ -1,1 +1,1 @@
-from .request import BaseRequest  # noqa
+from .request import BaseRequest, SortRequest, SortOrderEnum  # noqa
