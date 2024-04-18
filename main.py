@@ -1,8 +1,6 @@
 from fastapi import FastAPI
+from src.routes import health_router
 
 app = FastAPI()
 
-
-@app.get("/")
-def index():
-    return {"message": "Hello, World!"}
+app.include_router(health_router)
