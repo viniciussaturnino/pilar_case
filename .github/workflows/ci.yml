@@ -9,6 +9,13 @@ on:
     branches: [main, develop]
 
 jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build app
+        run: docker compose up -d app
+
   api-ci:
     runs-on: ubuntu-20.04
     steps:

@@ -1,24 +1,27 @@
 name: Deploy Production
 
 on:
-  workflow_call:
-  workflow_dispatch:
   push:
     branches: main
 
 jobs:
+  ci:
+    uses: viniciussaturnino/pilar_case/.github/workflows/ci.yml@main
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
+      - name: Build app
+        run: docker compose up -d app
 
-      - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
-        uses: gonuit/heroku-docker-deploy@v1.3.3 # GitHub action name (leave it as it is).
+  deploy:
+    needs: [ci, build]
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: akhileshns/heroku-deploy@v3.13.15
         with:
-          email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          dockerfile_directory: ./
-          dockerfile_name: Dockerfile
-          docker_options: "--no-cache"
-          process_type: web
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          usedocker: true
