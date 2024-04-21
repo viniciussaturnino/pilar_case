@@ -1,14 +1,7 @@
 import os
-from fastapi import FastAPI
 import uvicorn
 
-from src.routes import count_vowels_router, health_router, sort_words_router
-
-app = FastAPI()
-
-app.include_router(health_router)
-app.include_router(count_vowels_router)
-app.include_router(sort_words_router)
+from settings import app
 
 if __name__ == "__main__":
     port = os.getenv("PORT", 8000)
