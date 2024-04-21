@@ -1,6 +1,19 @@
 # API de Contagem de Vogais e Ordenação de Palavras
 
-Esta API fornece dois endpoints para manipulação de palavras:
+<div>
+  <a href="https://pilar-case-28a56b588b23.herokuapp.com/health_check/">
+    <img src="https://img.shields.io/badge/API-Heroku-430098?style=for-the-badge&logo=heroku" alt="Heroku">
+  </a>
+</div>
+
+<div>
+  <a href="https://pilar-case-28a56b588b23.herokuapp.com/docs">
+    <img src="https://img.shields.io/badge/Documentação-API-blue" alt="Documentação">
+  </a>
+  <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage">
+</div>
+
+## Esta API fornece dois endpoints para manipulação de palavras:
 
 1. **Contagem de Vogais**
 
